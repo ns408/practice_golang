@@ -1,9 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"mod_learnpackage/simpleinterest"
-)
+import "fmt"
 
 func main() {
 
@@ -30,6 +27,19 @@ func main() {
 
 	//Go Packages:
 	//- function name in a package starts with Caps. Eg: Calculate, Println
+
+	//from within the module directory, use either of these
+	go install
+	go install .
+	go install learnpackage
+
+	//Exported Names
+	'mod_learnpackage/simpleinterest' package has a function 'Calculate' instead of 'calculate'.
+	- any variable with a capital letter are **Exported names** in go. Only then can these be accessed from outside the package.
+
+	//changing the function to 'calculate' and then running 'mod_learnpackage/main.go' gives the following error:
+	./main.go:13:8: cannot refer to unexported name simpleinterest.calculate
+	./main.go:13:8: undefined: simpleinterest.calculate
   `)
 
 	fmt.Println(`
@@ -46,12 +56,14 @@ func main() {
 	mkdir mod_learnpackage/simpleinterest
 	vim mod_learnpackage/simpleinterest/simpleinterest.go // populate the file
   //All files in mod_learnpackage/simpleinterest should start with 'package simpleinterest' as they are all part of the same package.
+
+	//Test the module/package
+	cd mod_learning/; go run main.go
+
+	More play with Named return values. Also mucked around with GOPATH.
+	Seemed that only two ways of utilising the module/package was to either:
+	- mkdir src && mv mod_learnpackage src && export GOPATH=$(PWD)
+	- cp -av mod_learnpackage "$(go env PATH)/src/"
   `)
 
-	fmt.Println("Simple interest calculation")
-	p := 1000.0
-	r := 7.0
-	t := 1.0
-	si := simpleinterest.Calculate(p, r, t)
-	fmt.Println("Simple interest is", si)
 }
