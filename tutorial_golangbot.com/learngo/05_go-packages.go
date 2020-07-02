@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"mod_learnpackage/simpleinterest"
+)
 
 func main() {
 
@@ -24,6 +27,9 @@ func main() {
   //- is a collection of Go packages.
   //- import path for packages is derived from the module name
   //- $module/go.mod contains the packages and their versions. It get created on module creation.
+
+	//Go Packages:
+	//- function name in a package starts with Caps. Eg: Calculate, Println
   `)
 
 	fmt.Println(`
@@ -41,4 +47,11 @@ func main() {
 	vim mod_learnpackage/simpleinterest/simpleinterest.go // populate the file
   //All files in mod_learnpackage/simpleinterest should start with 'package simpleinterest' as they are all part of the same package.
   `)
+
+	fmt.Println("Simple interest calculation")
+	p := 1000.0
+	r := 7.0
+	t := 1.0
+	si := simpleinterest.Calculate(p, r, t)
+	fmt.Println("Simple interest is", si)
 }
