@@ -11,6 +11,8 @@ import (
 	"mod_learnpackage/simpleinterest" // importing the package into this module
 )
 
+var _ = simpleinterest.Calculate // mutes the error - but should be used with caution
+
 func main() {
 }
 
