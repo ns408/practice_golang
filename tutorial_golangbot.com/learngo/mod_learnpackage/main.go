@@ -8,10 +8,12 @@ package main
 */
 
 import (
-	"mod_learnpackage/simpleinterest" // importing the package into this module
+	/*
+		Using blank identifier while importing the package
+		This will still initialise the init() method from the package.
+	*/
+	_ "mod_learnpackage/simpleinterest" // importing the package into this module
 )
-
-var _ = simpleinterest.Calculate // mutes the error - but should be used with caution
 
 func main() {
 }
