@@ -55,6 +55,14 @@ func main() {
 	syntax:
 	func init() {
 	}
+
+	//blank identifier
+	- illegal to import a package and not use it. This avoids bloating of unused packages which increases compile time.
+
+	Example of use:
+	import "module/package"
+	var _ = "package.FunctionName
+
   `)
 
 	fmt.Println(`
