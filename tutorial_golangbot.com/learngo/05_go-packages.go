@@ -58,6 +58,8 @@ func main() {
 
 	//blank identifier
 	- illegal to import a package and not use it. This avoids bloating of unused packages which increases compile time.
+	- can be useful where initialisation of a package is needed without any of the functions or variables.
+	- write error silencers in the package level just after the import statement to ensure they are tracked and removed at the end of development.
 
 	Example of use:
 	import "module/package"
