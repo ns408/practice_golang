@@ -40,6 +40,21 @@ func main() {
 	//changing the function to 'calculate' and then running 'mod_learnpackage/main.go' gives the following error:
 	./main.go:13:8: cannot refer to unexported name simpleinterest.calculate
 	./main.go:13:8: undefined: simpleinterest.calculate
+
+	//init function
+	- each package can contain an 'init' function.
+	- it doesn't have a return type and parameters.
+	- it can't be called explicitly.
+	- it is called automatically when the package is initialised.
+	- it can be used to perform initialisation tasks and to verify the corectness of the program before execution starts.
+		- package level variables are initialised first.
+		- init function is called next. A package can have mulitple init functions in a single or multiple files. They are called in the order they are presented to the compiler.
+	- if a package imports other packages, the imported packages are initialised first.
+	- a package is initialised only once even if imported from multiple packages.
+
+	syntax:
+	func init() {
+	}
   `)
 
 	fmt.Println(`

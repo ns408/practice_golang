@@ -1,5 +1,14 @@
 package simpleinterest
 
+import "fmt"
+
+/*
+* init function
+ */
+func init() {
+	fmt.Println("Simpeinterest package initialised")
+}
+
 //Calculate calculates and returns the simple interest for a principal p, rate
 //of interest r for duration t years
 //func Calculate(p float64, r float64, t float64) float64 {
